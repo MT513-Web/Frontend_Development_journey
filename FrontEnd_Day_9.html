@@ -1,0 +1,62 @@
+<!--
+===========================================
+   DAY 9: JAVASCRIPT LOGICAL OPERATORS
+=========================================== 
+
+SUMMARY NOTES:
+- Logical AND (&&): Returns true only if all evaluated conditions are true. 
+- Logical OR (||): Returns true if at least one condition is true. 
+- Logical NOT (!): Acts as an inverter that reverses the boolean value, transforming true to false and false to true.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 - Logical Operators</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f5f6fa; }
+        .box { background-color: white; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        button { background-color: #e67e22; color: white; padding: 8px 15px; border: none; cursor: pointer; }
+        .result-text { font-weight: bold; color: green; margin-top: 15px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Day 9</h1>
+
+    <div class="box">
+        <h3>Logical Operators Demo (&&, ||, !)</h3>
+        <p style="color: #3d3232;">Click the button to evaluate all three logical operators simultaneously based on standard handout rules.</p>
+        <button onclick="runLogicalOperators()" >Evaluate Logic</button>
+        <p id="logic-output" class="result-text"></p>
+    </div>
+
+    <script>
+        // Evaluates logical operators
+        function runLogicalOperators() {
+            var isTrue = true;
+            var isFalse = false;
+
+            // 1. AND Rule Evaluation
+            var andResult = (isTrue && isFalse); 
+            var andExplanation = "AND Rule: Both conditions must be true, so it evaluates to " + andResult;
+
+            // 2. OR Rule Evaluation
+            var orResult = (isTrue || isFalse);  
+            var orExplanation = "OR Rule: Only one true is needed, so it evaluates to " + orResult;
+
+            // 3. NOT Rule Evaluation
+            var notResult = (!isTrue);           
+            var notExplanation = "NOT Rule: Reverses true into false, so it evaluates to " + notResult;
+
+            // Display results with precise reasons
+            document.getElementById("logic-output").innerHTML = 
+                "1. " + andExplanation + "<br>" + 
+                "2. " + orExplanation + "<br>" + 
+                "3. " + notExplanation;
+        }
+    </script>
+</body>
+</html>
