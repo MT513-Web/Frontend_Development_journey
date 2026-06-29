@@ -1,0 +1,71 @@
+<!--
+===========================================================
+DAY 10: CONDITIONAL STATEMENTS AND REUSABLE FUNCTIONS
+===========================================================
+
+SUMMARY NOTES:
+- Conditional structures (if, else if, else) control the execution flow based on true or false states.
+- The else block acts as a default fallback and does not accept any conditional parameters.
+- Functions are declared using the function keyword to create reusable blocks of logic.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10 - Conditional Branching & Functions</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f5f6fa; }
+        .box { background-color: white; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        button { background-color: #e67e22; color: white; padding: 8px 15px; border: none; cursor: pointer; }
+        .result-text { font-weight: bold; color: green; margin-top: 15px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <h1>Day 10 JavaScript</h1>
+
+    <div class="box">
+        <h3>Topic Covered: Conditional Statements (if / else if / else) &amp; Functions</h3>
+        <p style="color: #555;">Click the button to execute the logic and trace the conditional branching execution flow step-by-step.</p>
+        <button onclick="executeControlFlow()">Execute Logic</button>
+        <p id="grade-output" class="result-text"></p>
+    </div>
+
+    <script>
+        // Declaring a reusable function to demonstrate conditional execution flow
+        function executeControlFlow() {
+            var currentCGPA = 3.36; 
+            
+            // Step 1: Evaluate primary conditional branch
+            var condition1 = (currentCGPA >= 3.5); 
+            var traceStep1 = "Step 1 - Evaluating Condition 'if (CGPA >= 3.5)': " + condition1;
+
+            // Step 2: Evaluate secondary conditional branch
+            var condition2 = (currentCGPA >= 3.0); 
+            var traceStep2 = "Step 2 - Evaluating Condition 'else if (CGPA >= 3.0)': " + condition2;
+
+            // Step 3: Determine target execution block
+            var logicVerdict = "";
+            if (currentCGPA >= 3.5) {
+                logicVerdict = "Branch A Executed: Excellent standing. Qualifies for premium criteria.";
+            } 
+            else if (currentCGPA >= 3.0) {
+                logicVerdict = "Branch B Executed: Solid performance. Core parameters are stable.";
+            } 
+            else {
+                logicVerdict = "Branch C Executed: Standard status. Requires core parameter review.";
+            }
+
+            // Output execution tree and final result to user interface
+            document.getElementById("grade-output").innerHTML  =
+                "Input Data (Variable State): " + currentCGPA + "<br><br>" +
+                traceStep1 + " -> Skipping execution block<br>" +
+                traceStep2 + " -> Entering execution block<br><br>" +
+                "Final System Output -> " + logicVerdict;
+        }
+    </script>
+
+</body>
+</html>
