@@ -1,0 +1,125 @@
+<!--
+=============================================================================
+DAY 13: JAVASCRIPT SWITCH STATEMENTS, LOOPS, AND CONTROL FLOW
+=============================================================================
+
+SUMMARY NOTES:
+- The switch statement performs separate actions based on strict evaluation (===) of condition cases.
+- Omitting the 'break' keyword in a switch block causes continuous execution into subsequent cases (Fall-Through).
+- For Loops execute a block of code a set number of times using Initialization, Condition, and Update expressions.
+- The For/In loop loops explicitly through the string-based properties/keys of a JavaScript object.
+- While loops run as long as a condition is true; Do/While loops execute at least once before checking the condition.
+- 'break' jumps completely out of a loop block; 'continue' skips only the current iteration step and moves to the next.
+-->
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13 - Control Flow & Loops Analysis</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f5f6fa; }
+        .container { background-color: white; padding: 25px; border: 2px solid #3498db; border-radius: 8px; max-width: 600px; margin-bottom: 20px; }
+        h2 { color: #2c3e50; margin-bottom: 15px; }
+        button { background-color: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-right: 5px; margin-bottom: 5px; }
+        button:hover { background-color: #2980b9; }
+        .output-box { margin-top: 20px; padding: 15px; background-color: #eef2f7; border-left: 5px solid #2ecc71; font-family: Courier, monospace; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>JavaScript Day 13 - Control Flow & Loops</h2>
+        <p>Click the buttons below to test the backend execution architectures processed interactively.</p>
+        
+        <button onclick="runSwitchAnalysis()">Run Switch Test</button>
+        <button onclick="runForLoopAnalysis()">Run For Loop Test</button>
+        <button onclick="runWhileAnalysis()">Run While/Do-While Test</button>
+        <button onclick="runBreakContinueAnalysis()">Run Break/Continue Test</button>
+
+        <div id="display-area" class="output-box" style="display:none;"></div>
+    </div>
+
+    <script>
+        function showOutput(text) {
+            var area = document.getElementById("display-area");
+            area.style.display = "block";
+            area.innerHTML = text;
+        }
+
+        // Switch Statement with Strict Comparison Evaluation
+        function runSwitchAnalysis() {
+            var currentDayNum = new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
+            var logMessage = "<b>Switch Evaluation (Fall-Through & Default Practice):</b><br>";
+            
+            switch (currentDayNum) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    logMessage += "Current Status: Weekday / Working Day.<br>";
+                    break;
+                case 0:
+                case 6:
+                    logMessage += "Current Status: Weekend Holiday!<br>";
+                    break;
+                default:
+                    logMessage += "Invalid configuration state detected.<br>";
+            }
+            showOutput(logMessage);
+        }
+
+        // For Loop & For/In Objects Iteration Paths
+        function runForLoopAnalysis() {
+            var logMessage = "<b>1. Standard For Loop Execution (0 to 4):</b><br>";
+            for (var i = 0; i < 5; i++) {
+                logMessage += "Iteration Index State: " + i + "<br>";
+            }
+
+            logMessage += "<br><b>2. For/In Object Property Traversal:</b><br>";
+            var studentProfile = { name: "Ayesha", semester: "6th", status: "Active" };
+            for (var key in studentProfile) {
+                logMessage += "Property [Key]: " + key + " | Value: " + studentProfile[key] + "<br>";
+            }
+            showOutput(logMessage);
+        }
+
+        // While vs Do/While Structural Comparison
+        function runWhileAnalysis() {
+            var logMessage = "<b>1. Standard While Loop Evaluation:</b><br>";
+            var count = 0;
+            while (count < 3) {
+                logMessage += "While Count: " + count + "<br>";
+                count++;
+            }
+
+            logMessage += "<br><b>2. Do/While Guaranteed Execution Loop (Condition initially False):</b><br>";
+            var baseline = 15;
+            do {
+                logMessage += "Do/While executed tracking state: " + baseline + " (Runs exactly once!)<br>";
+                baseline++;
+            } while (baseline < 10); // Condition drops instantly
+
+            showOutput(logMessage);
+        }
+
+        //  Break and Continue Logic Splits
+        function runBreakContinueAnalysis() {
+            var logMessage = "<b>1. Loop tracking Break at index 3:</b><br>";
+            for (var b = 0; b < 6; b++) {
+                if (b === 3) { break; }
+                logMessage += "Processed Element: " + b + "<br>";
+            }
+
+            logMessage += "<br><b>2. Loop tracking Continue (Skip index 3):</b><br>";
+            for (var c = 0; c < 6; c++) {
+                if (c === 3) { continue; }
+                logMessage += "Processed Element: " + c + "<br>";
+            }
+            showOutput(logMessage);
+        }
+    </script>
+</body>
+</html>
