@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day 19: Animations and Math</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <style>
+        body { font-family: Arial; margin: 30px; background: #fafafa; }
+        .block { width: 150px; height: 150px; background: blue; color: white; padding: 10px; margin: 10px 0; position: relative; text-align: center; }
+        .btn-panel { margin-bottom: 15px; }
+        button { padding: 8px 12px; margin-right: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>Day 19: jQuery Effects & JS Math</h1>
+    <hr>
+
+    <div class="btn-panel">
+        <button id="fade-btn">Fade Toggle</button>
+        <button id="slide-btn">Slide Toggle</button>
+        <button id="move-btn">Animate Move</button>
+        <button id="chain-btn">Chain Actions</button>
+        <button id="math-btn">Generate Random Number</button>
+    </div>
+
+    <div class="block" id="test-box">Practice Box</div>
+
+    <h3 id="math-output">Random Number will appear here.</h3>
+
+    <script src="script_day19.js"></script>
+</body>
+</html>
