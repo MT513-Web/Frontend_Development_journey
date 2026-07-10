@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day 20: DOM Modification and Traversing</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <style>
+        body { font-family: Arial; margin: 25px; background: #fdfdfd; }
+        .test-div { padding: 15px; margin: 10px 0; background: lightblue; border: 2px solid blue; }
+        .highlight { background-color: purple; color: white; font-weight: bold; }
+        .ancestor-box { border: 2px solid gray; padding: 10px; margin: 5px; }
+        button { padding: 6px 12px; margin: 5px 2px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>Day 20: HTML DOM & Traversing Practice</h1>
+    <hr>
+
+    <h3>1. Content & Elements Test</h3>
+    <div class="test-div" id="content-box">
+        Original Text inside the box.
+    </div>
+    <input type="text" id="user-input" value="Sample Input Value">
+    <br><br>
+    <button id="btn-text">Set Text</button>
+    <button id="btn-html">Set Bold HTML</button>
+    <button id="btn-append">Append Content</button>
+    <button id="btn-empty">Empty Box</button>
+
+    <h3>2. CSS Class & Dimensions</h3>
+    <button id="btn-toggle">Toggle Purple Class</button>
+    <button id="btn-dim">Check Dimensions</button>
+
+    <h3>3. DOM Traversing (Ancestors)</h3>
+    <div class="ancestor-box" id="grandparent">
+        Grandparent Div
+        <div class="ancestor-box" id="parent">
+            Parent Div
+            <span id="child-span" style="color: red; font-weight: bold;">Click me to trace Parent!</span>
+        </div>
+    </div>
+
+    <script src="script_day20.js"></script>
+</body>
+</html>
